@@ -7,7 +7,7 @@ Uma Single Page Application (SPA) com uma listagem de pokémons vindos da [PokeA
 
 ##Tecnologias utilizadas:\
 [React](https://reactjs.org/)\
-[TypeScript](https://www.typescriptlang.org/)
+[TypeScript](https://www.typescriptlang.org/)\
 [StyledComponents](https://styled-components.com/)\
 [Surge](https://surge.sh/)\
 [Visual Studio Code](https://code.visualstudio.com/docs/editor/vscode-web)
