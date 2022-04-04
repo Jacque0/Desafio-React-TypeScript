@@ -4,28 +4,18 @@ import PokeCard from '../../components/PokeCard/PokeCard'
 import { BASE_URL } from '../../constants/BASE_URL'
 import useRequestData from '../../hooks/useRequestData'
 import { HomeContainer, PokemonsArea } from './styleHome'
+import { ObjectData, ObjectPokemon } from '../../constants/Types'
+import { Loading } from '../../components/Loading/Loading'
 
 export default function HomePage() {
     const pokemonsRequest = useRequestData(`${BASE_URL}?limit=50`)
     const [inputValue, setInputValue] = useState("");
     const [pokemonsList, setPokemonsList] = useState({})
 
-    type ObjectPokemon = {
-        name: string,
-        url: string
-    }
-    type ObjectData = {
-        count: number,
-        next: string,
-        previous: any,
-        results: ObjectPokemon[]
-    }
-
     const handleChange = (event:any) => {
         setInputValue(event.target.value);
     };
     const pokemons = pokemonsRequest[0] as ObjectData
-    const error = pokemonsRequest[1]
     const loading = pokemonsRequest[2]
     
 
@@ -38,7 +28,7 @@ export default function HomePage() {
                 } else {
                 return item.name.toUpperCase().includes(inputValue.toUpperCase())
                 }
-            }).map((item)=>{
+            }).map((item: ObjectPokemon)=>{
                 return <PokeCard pokemonName={item.name} />
             })
             setPokemonsList(pokemonsFilter)
@@ -57,6 +47,7 @@ export default function HomePage() {
                 value={inputValue}
                 onChange={handleChange} />
             <PokemonsArea>
+                {loading && <Loading />}
                 {!loading && pokemons.results && pokemonsList}
             </PokemonsArea>
           </HomeContainer>

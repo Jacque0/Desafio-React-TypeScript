@@ -1,4 +1,3 @@
-import React, {useState ,useEffect} from "react"
 import { CardContainer, TypeContainer } from "./styledPokeCard"
 import useRequestData from "../../hooks/useRequestData"
 import { BASE_URL } from "../../constants/BASE_URL"
@@ -6,17 +5,18 @@ import { Link } from "react-router-dom"
 import usePokemonType from "../../hooks/usePokemonType"
 import pikachusillouette from '../../assets/pikachusillouette.png'
 import { typeDetails } from "../../constants/typeDetails"
+import { PokemonDetails } from "../../constants/Types"
 
-export default function PokeCard(props:any) {
+export default function PokeCard(props:{pokemonName: string}) {
 
   const capitalizeFirst = (str: string) => { 
     return str.charAt(0).toUpperCase() + str.slice(1)
   }
 
   const pokemonName = props.pokemonName
-  const pokemonData = useRequestData(`${BASE_URL}${pokemonName}`)[0] as any
+  const pokemonData = useRequestData(`${BASE_URL}${pokemonName}`)[0] as PokemonDetails
 
-  let photoPokemon
+  let photoPokemon: string
     if (pokemonData.sprites && pokemonData.sprites.other.home.front_default){
         photoPokemon = pokemonData.sprites.other.home.front_default
     } else if (pokemonData.sprites && pokemonData.sprites.front_default){
