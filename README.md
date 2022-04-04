@@ -1,5 +1,4 @@
 # Desafio-React-TypeScript
-Em construção...
 Uma Single Page Application (SPA) com uma listagem de pokémons vindos da [PokeAPI](https://pokeapi.co/). 
 
 # Site
