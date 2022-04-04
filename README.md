@@ -5,7 +5,7 @@ Uma Single Page Application (SPA) com uma listagem de pokémons vindos da [PokeA
 # Site
 [Desafio-Justa](https://desafio-justa.surge.sh/)
 
-##Tecnologias utilizadas:
+##Tecnologias utilizadas:\
 [React](https://reactjs.org/)\
 [TypeScript](https://www.typescriptlang.org/)
 [StyledComponents](https://styled-components.com/)\
